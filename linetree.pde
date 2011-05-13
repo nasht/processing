@@ -5,7 +5,7 @@ float len = 0;
 int rotDegrees = 290;
 int numBranch = 3;
 int maxDepth = 9;
-float brScale =  1-0.618;
+float brScale =  0.48;
 int curBranch = 0;
 
 void setup() {
@@ -45,7 +45,7 @@ void branch(int depth) {
   }
  
   else  {
-   branch(depth+1);
+  
   
     int i =0;
     while( i < numBranch) {
@@ -53,11 +53,14 @@ void branch(int depth) {
         //ellipse(x,y,5,5);
         //ellipse(x,y-len,5,5);
         rotate(radians(rotDegrees));
-        line(x,y,x,y-len);
+        line(0,0,0,-len);
         branch(depth+1);
       popMatrix(); 
       rotDegrees+= (int) random(-15,15) + (int)140/(numBranch-1);
       i++;
+      translate(0,-len);
+      scale(brScale);
+      branch(depth+1);
     }
     
  } 
