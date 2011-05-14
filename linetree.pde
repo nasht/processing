@@ -4,13 +4,14 @@ int x = 0;
 int y = 0;
 
 int minBranch = 6;
-int maxBranch = 7;
+int maxBranch = 6;
 int maxDepth = 7;
 float maxScale = 0.5;
 float minScale = 0.27;
 float lenOffsetMax = 0.8;
 float lenOffsetMin = 0.35;
-
+int yStart = 218;
+int pStart = 26;
 int curBranch = 0;
 
 void setup() {
@@ -60,12 +61,12 @@ void branch(int depth) {
         //len = height * random(lenOffsetMin, lenOffsetMax);
         len = height * 0.25;
         if (depth > 3 ) {
-          stroke(#7E1A86);
+          stroke(126,pStart++%255, 134);
           strokeWeight(20);
           //println("Setting color!");
         }
         else {
-           stroke(#6FF000, 55);//Green);
+           stroke(#6FF000);//Green);
         }
          //stroke(
         //ellipse(x,y-len,5,5);
@@ -74,7 +75,7 @@ void branch(int depth) {
         rotDegrees+= (int)360/(numBranch);
         line(0,0,0,-len); 
         pushMatrix();
-          stroke(#FFDA03);
+          stroke(255,yStart,3,50);
           fill(#FFDA03,20);
           strokeWeight(2);
           ellipse(0,0,180,180);
