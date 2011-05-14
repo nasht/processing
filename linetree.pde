@@ -4,8 +4,8 @@ int x = 0;
 int y = 0;
 
 int minBranch = 6;
-int maxBranch = 4;
-int maxDepth = 8;
+int maxBranch = 7;
+int maxDepth = 7;
 float maxScale = 0.5;
 float minScale = 0.27;
 float lenOffsetMax = 0.8;
@@ -77,7 +77,7 @@ void branch(int depth) {
           stroke(#FFDA03);
           fill(#FFDA03,20);
           strokeWeight(2);
-          ellipse(0,0,60,60);
+          ellipse(0,0,180,180);
         popMatrix();   
         translate(0,-len);
         //scale( random(minScale, maxScale));
