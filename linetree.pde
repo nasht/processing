@@ -70,7 +70,7 @@ void branch(int depth) {
         }
          //stroke(
         //ellipse(x,y-len,5,5);
-        rotate(radians(rotDegrees));
+      
         //rotDegrees+= (int) random(-15,15) + (int)360/(numBranch-1);
         rotDegrees+= (int)360/(numBranch);
         line(0,0,0,-len); 
@@ -82,9 +82,12 @@ void branch(int depth) {
         popMatrix();   
         translate(0,-len);
         //scale( random(minScale, maxScale));
+       
         scale(maxScale);
+         
         branch(depth+1);   
       popMatrix(); 
+      rotate(radians(rotDegrees));
      
     }
     
