@@ -2,9 +2,9 @@
 int x = 0;
 int y = 0;
 float len = 0;
-int rotDegrees = 290;
-int numBranch = 3;
-int maxDepth = 9;
+
+int numBranch = 4;
+int maxDepth = 12;
 float brScale =  0.48;
 int curBranch = 0;
 
@@ -27,6 +27,7 @@ void draw() {
 
 void branch(int depth) {
  // println("depth = " + depth);
+ int rotDegrees = 290;
  if (depth > maxDepth) {
    //println("Depth is greater, returning");
    return;
@@ -40,27 +41,31 @@ void branch(int depth) {
    
    //ellipse(0,-len,20,20);
     translate(0,-len);
-   scale(brScale);
-   branch(depth+1);
+    scale(brScale);
+    branch(depth+1);
   }
  
-  else  {
+  else if (depth < maxDepth) {
   
-  
+    println("Depth = " + depth);
     int i =0;
     while( i < numBranch) {
+      i++;
       pushMatrix();
-        //ellipse(x,y,5,5);
+         
         //ellipse(x,y-len,5,5);
         rotate(radians(rotDegrees));
-        line(0,0,0,-len);
-        branch(depth+1);
+        rotDegrees+= (int) random(-15,15) + (int)140/(numBranch-1);
+        line(0,0,0,-len); 
+        ellipse(0,0,20,20);
+        
+        
+        translate(0,-len);
+        scale(brScale);
+        
+        branch(depth+1);   
       popMatrix(); 
-      rotDegrees+= (int) random(-15,15) + (int)140/(numBranch-1);
-      i++;
-      translate(0,-len);
-      scale(brScale);
-      branch(depth+1);
+     
     }
     
  } 
