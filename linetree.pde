@@ -3,13 +3,16 @@ int x = 0;
 int y = 0;
 float len = 0;
 
-int numBranch = 4;
-int maxDepth = 12;
-float brScale =  0.48;
+int numBranch = 8;
+int maxDepth = 7;
+float brScale =  0.50;
 int curBranch = 0;
 
 void setup() {
+  background(255);
   size(800,800);
+  strokeWeight(20);
+
   noLoop();
   x = width/2;
   y = height;
@@ -19,13 +22,12 @@ void setup() {
 }
 
 void draw() {
-
   translate(x,y);
-  
-   branch(0); 
+  branch(0); 
 }
 
 void branch(int depth) {
+    stroke(#6FF000);//Green);
  // println("depth = " + depth);
  int rotDegrees = 290;
  if (depth > maxDepth) {
@@ -36,9 +38,11 @@ void branch(int depth) {
   if (depth == 0) {
    //print ("Drawing line!");
    line(0,0,0,-len);
-   fill(255);
-   ellipse(0,0,80,80);
-   
+   pushMatrix();
+     strokeWeight(7);
+     fill(255);
+     ellipse(0,0,80,80);
+   popMatrix();
    //ellipse(0,-len,20,20);
     translate(0,-len);
     scale(brScale);
@@ -47,7 +51,7 @@ void branch(int depth) {
  
   else if (depth < maxDepth) {
   
-    println("Depth = " + depth);
+    //println("Depth = " + depth);
     int i =0;
     while( i < numBranch) {
       i++;
@@ -57,9 +61,10 @@ void branch(int depth) {
         rotate(radians(rotDegrees));
         rotDegrees+= (int) random(-15,15) + (int)140/(numBranch-1);
         line(0,0,0,-len); 
-        ellipse(0,0,20,20);
-        
-        
+        pushMatrix();
+          strokeWeight(7);
+          ellipse(0,0,20,20);
+        popMatrix();   
         translate(0,-len);
         scale(brScale);
         
