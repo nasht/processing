@@ -4,8 +4,8 @@ int x = 0;
 int y = 0;
 
 int minBranch = 6;
-int maxBranch = 14;
-int maxDepth = 5;
+int maxBranch = 4;
+int maxDepth = 8;
 float maxScale = 0.5;
 float minScale = 0.27;
 float lenOffsetMax = 0.8;
@@ -24,7 +24,7 @@ void setup() {
  
   smooth();
   
-  beginRecord(PDF, "cosmos.pdf"); 
+  //beginRecord(PDF, "cosmos.pdf"); 
   
 }
 
@@ -32,7 +32,7 @@ void draw() {
   translate(x,y);
   // beginRecord(PDF, "Cosmos.pdf");
      branch(0); 
-  endRecord();
+  //endRecord();
 }
 
 void branch(int depth) {
@@ -61,21 +61,21 @@ void branch(int depth) {
         len = height * 0.25;
         if (depth > 3 ) {
           stroke(#7E1A86);
-          strokeWeight(5);
+          strokeWeight(20);
           //println("Setting color!");
         }
         else {
-           stroke(#6FF000);//Green);
+           stroke(#6FF000, 55);//Green);
         }
          //stroke(
         //ellipse(x,y-len,5,5);
         rotate(radians(rotDegrees));
         //rotDegrees+= (int) random(-15,15) + (int)360/(numBranch-1);
-        rotDegrees+= (int)360/(numBranch-1);
+        rotDegrees+= (int)360/(numBranch);
         line(0,0,0,-len); 
         pushMatrix();
           stroke(#FFDA03);
-          fill(#FFDA03);
+          fill(#FFDA03,20);
           strokeWeight(2);
           ellipse(0,0,60,60);
         popMatrix();   
