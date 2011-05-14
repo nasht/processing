@@ -1,3 +1,4 @@
+import processing.pdf.*;
 
 int x = 0;
 int y = 0;
@@ -13,9 +14,9 @@ float lenOffsetMin = 0.35;
 int curBranch = 0;
 
 void setup() {
-  background(255);
-  size(800,800);
-  strokeWeight(2);
+  background(0);
+  size(1024,768);
+  strokeWeight(1);
 
   noLoop();
   x = width/2;
@@ -23,16 +24,20 @@ void setup() {
  
   smooth();
   
+  beginRecord(PDF, "cosmos.pdf"); 
+  
 }
 
 void draw() {
   translate(x,y);
-  branch(0); 
+  // beginRecord(PDF, "Cosmos.pdf");
+     branch(0); 
+  endRecord();
 }
 
 void branch(int depth) {
   
-  float len = height*0.5;
+  float len = height*0.45;
 
  int numBranch = maxBranch;
   
@@ -53,9 +58,10 @@ void branch(int depth) {
       i++;
       pushMatrix();
         //len = height * random(lenOffsetMin, lenOffsetMax);
-        len = height * 0.3;
+        len = height * 0.25;
         if (depth > 3 ) {
           stroke(#7E1A86);
+          strokeWeight(5);
           //println("Setting color!");
         }
         else {
@@ -69,17 +75,25 @@ void branch(int depth) {
         line(0,0,0,-len); 
         pushMatrix();
           stroke(#FFDA03);
+          fill(#FFDA03);
           strokeWeight(2);
           ellipse(0,0,60,60);
         popMatrix();   
         translate(0,-len);
-        scale( random(minScale, maxScale));
-        
+        //scale( random(minScale, maxScale));
+        scale(maxScale);
         branch(depth+1);   
       popMatrix(); 
      
     }
     
  } 
+ 
  //}
+}
+
+
+void mousePressed() 
+{
+  save("mandala.tif");
 }
