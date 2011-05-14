@@ -3,8 +3,8 @@ int x = 0;
 int y = 0;
 
 int minBranch = 6;
-int maxBranch = 9;
-int maxDepth = 8;
+int maxBranch = 14;
+int maxDepth = 7;
 float maxScale = 0.5;
 float minScale = 0.27;
 float lenOffsetMax = 0.8;
@@ -15,11 +15,11 @@ int curBranch = 0;
 void setup() {
   background(255);
   size(800,800);
-  strokeWeight(80);
+  strokeWeight(7);
 
   noLoop();
   x = width/2;
-  y = height;
+  y = height/2;
  
   smooth();
   
@@ -49,14 +49,14 @@ void branch(int depth) {
   // float brScale = 
    len = height*0.35;
     stroke(#AA660C);
-   line(0,0,0,-len);
+   //line(0,0,0,-len);
    pushMatrix();
-     strokeWeight(7);
+     strokeWeight(2);
      fill(255);
      ellipse(0,0,80,80);
    popMatrix();
    //ellipse(0,-len,20,20);
-    translate(0,-len);
+    //translate(0,-len);
     scale(maxScale);
     branch(depth+1);
   }
@@ -69,7 +69,8 @@ void branch(int depth) {
       
       i++;
       pushMatrix();
-        len = height * random(lenOffsetMin, lenOffsetMax);
+        //len = height * random(lenOffsetMin, lenOffsetMax);
+        len = height * 0.6;
         if (depth > 3 ) {
           stroke(#7E1A86);
           //println("Setting color!");
@@ -80,10 +81,11 @@ void branch(int depth) {
          //stroke(
         //ellipse(x,y-len,5,5);
         rotate(radians(rotDegrees));
-        rotDegrees+= (int) random(-15,15) + (int)140/(numBranch-1);
+        //rotDegrees+= (int) random(-15,15) + (int)360/(numBranch-1);
+        rotDegrees+= (int)360/(numBranch-1);
         line(0,0,0,-len); 
         pushMatrix();
-          strokeWeight(20);
+          strokeWeight(4);
           ellipse(0,0,20,20);
         popMatrix();   
         translate(0,-len);
