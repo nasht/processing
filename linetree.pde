@@ -60,8 +60,8 @@ void branch(int depth) {
       pushMatrix();
         //len = height * random(lenOffsetMin, lenOffsetMax);
         len = height * 0.25;
-        if (depth > 3 ) {
-          stroke(126,pStart++%255, 134);
+        if (depth > 4 ) {
+          stroke(126,pStart, 134);
           strokeWeight(20);
           //println("Setting color!");
         }
@@ -78,7 +78,7 @@ void branch(int depth) {
           stroke(255,yStart,3,50);
           fill(#FFDA03,20);
           strokeWeight(2);
-          ellipse(0,0,180,180);
+          //ellipse(0,0,180,180);
         popMatrix();   
         translate(0,-len);
         //scale( random(minScale, maxScale));
@@ -99,5 +99,5 @@ void branch(int depth) {
 
 void mousePressed() 
 {
-  save("mandala.tif");
+  save("mandala." + (new java.util.Date()).getTime() + ".tif");
 }
