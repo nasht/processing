@@ -15,7 +15,7 @@ int curBranch = 0;
 
 void setup() {
   background(0);
-  size(1024,768);
+  size(1440,1900);
   strokeWeight(1);
 
   noLoop();
@@ -95,5 +95,5 @@ void branch(int depth) {
 
 void mousePressed() 
 {
-  save("mandala.tif");
+  save("output." + new (java.util.Date()).getTime() +".tif");
 }
