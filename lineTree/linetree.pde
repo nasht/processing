@@ -15,7 +15,7 @@ int curBranch = 0;
 
 void setup() {
   background(0);
-  size(1440,1900);
+  size(1440*8,900*8);
   strokeWeight(1);
 
   noLoop();
@@ -60,12 +60,12 @@ void branch(int depth) {
         //len = height * random(lenOffsetMin, lenOffsetMax);
         len = height * 0.25;
         if (depth > 3 ) {
-          stroke(#7E1A86);
+          stroke(#07338E);
           strokeWeight(20);
           //println("Setting color!");
         }
         else {
-           stroke(#6FF000, 55);//Green);
+           stroke(#FF0810, 55);//Green);
         }
          //stroke(
         //ellipse(x,y-len,5,5);
@@ -95,5 +95,5 @@ void branch(int depth) {
 
 void mousePressed() 
 {
-  save("output." + new (java.util.Date()).getTime() +".tif");
+  save("output." + (new java.util.Date()).getTime() +".jpg");
 }
